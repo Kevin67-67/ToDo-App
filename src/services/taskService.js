@@ -12,7 +12,7 @@ function createTask(title){
     return task;
 }
 //READ
-function getTask(){
+function getTasks(){
     return tasks;
 }
 
@@ -24,24 +24,23 @@ function getTaskById(id){
 function updateTask(id, updates={}){
     let taskToUpdate = getTaskById(id);
     if (updates.title != undefined){
-        taskToUpdate.title = updates.title;
+        taskToUpdate = updates.title; 
     }
     if (updates.completed != undefined){
         taskToUpdate.completed = updates.completed;
     }
-    tasks = tasks.splice(id,1); //el 1 es el elemento que quiero que coincida con el id 
+    tasks = tasks.splice(id,1);
     tasks.push(taskToUpdate);
     return taskToUpdate;
 }
 
 //DELETE
 function deleteTask(id){
-    const taskToDelete = getTaskById(id);
-    const index = tasks.indexOf(taskToDelete);
-    tasks.splice(index, 1);
+    const taskToDelete = getTaskById(id); 
+    tasks = tasks.splice(taskToDelete.id,1);
     return taskToDelete;
 }
 
 module.exports = {
-    createTask, getTask, getTaskById, updateTask, deleteTask
+    createTask, getTasks, getTaskById, updateTask, deleteTask
 }

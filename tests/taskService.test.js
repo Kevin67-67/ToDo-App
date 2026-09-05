@@ -1,7 +1,7 @@
 describe('taskService', ()=>{
 
     let taskService;
-    
+
     beforeEach(()=>{
         jest.resetModules();
         taskService = require('../src/services/taskService');
@@ -9,34 +9,30 @@ describe('taskService', ()=>{
 
     test('create task', ()=>{
         const task = taskService.createTask("Estudiar node.js");
-        
         expect(task).toMatchObject({title: "Estudiar node.js", completed: false});
         expect(task.id).toBeDefined();
     });
 
-    test('get tasks', ()=>{
+    test('check task', ()=>{
         taskService.createTask('Sacar la basura');
         taskService.createTask('Pasear al perro');
 
-        expect(taskService.getTask()).toHaveLength(2);
-
+        expect(taskService.getTasks()).toHaveLength(2);
     });
 
     test('update task', ()=>{
         const task = taskService.createTask("Estudiar node.js");
-        const updatedTask = taskService.updateTask(task.id, {completed: true});
 
-        expect(updatedTask.completed).toBe(true);
+        const updateTask = taskService.updateTask(task.id, {completed: true});
 
+        expect(updateTask.completed).toBe(true);
     });
-    
-    test('delete task', ()=>{
+
+    test('Delete task' , ()=>{
         const task = taskService.createTask("Estudiar node.js");
         taskService.deleteTask(task.id);
 
-        expect(taskService.getTask()).toHaveLength(0);
-
+        expect(taskService.getTasks()).toHaveLength(0);
     });
-
 
 });
