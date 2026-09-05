@@ -1,4 +1,4 @@
-# todo-app
+# ToDo-App
 
 ## Datos académicos
 
@@ -43,7 +43,7 @@ Aplicar los conceptos fundamentales de administración de paquetes con NPM e int
 ## Instalación
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone <https://github.com/Kevin67-67/ToDo-App>
 cd todo-app
 npm install
 ```
@@ -133,5 +133,4 @@ todo-app/
 
 ## Autor
 
-Kevin Rosales — [385814]"# ToDo-App" 
-"# ToDo-App" 
+Kevin Rosales — [385814]
